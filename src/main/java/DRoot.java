@@ -1,21 +1,25 @@
-import java.util.stream.IntStream;
-
 public class DRoot {
     public static void main (String[] args){
 
         digital_root(87654680);
     }
 
-    public static void digital_root(int n){
+    public static int digital_root(int n){
 
         String number = Integer.toString(n);
-        int sum = 0;
+        StringBuilder sum = new StringBuilder();
+
         for (int i = 0; i < number.length(); i++){
-            sum += Integer.parseInt(String.valueOf(number.charAt(i)));
-            if (i<number.length()-1){
-            System.out.print(number.charAt(i) + " + " );}
-            else System.out.print(number.charAt(i));
+            sum.append(number.charAt(i));
         }
-        System.out.print(" = "+ sum);
+
+        String sumString = sum.toString();
+        StringBuilder newSum = new StringBuilder();
+
+        for (int i = 0; i < sumString.length(); i++){
+            newSum.append(sumString.charAt(i));
+        }
+
+        return Integer.parseInt(newSum.toString());
     }
 }
