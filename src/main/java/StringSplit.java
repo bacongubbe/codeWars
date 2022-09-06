@@ -8,7 +8,6 @@ public class StringSplit {
         System.out.println(solution("abcdefg"));
         Arrays.asList(solution("abcdefg")).forEach(str -> System.out.print(str));
         System.out.println(Arrays.toString(solution("abcdefg")));
-
     }
 
     public static String[] solution(String s){
