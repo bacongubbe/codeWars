@@ -1,25 +1,28 @@
+import java.util.function.ToIntFunction;
+import java.util.stream.Stream;
+
 public class DRoot {
     public static void main (String[] args){
 
-        digital_root(87654680);
+        System.out.println(digital_root(456));
     }
 
     public static int digital_root(int n){
 
         String number = Integer.toString(n);
-        StringBuilder sum = new StringBuilder();
+        char[] charArray = number.toCharArray();
 
-        for (int i = 0; i < number.length(); i++){
-            sum.append(number.charAt(i));
+        int newInt = 0;
+        for (int i = 0; i < number.length(); i++) {
+            newInt += charArray[i] - '0';
         }
 
-        String sumString = sum.toString();
-        StringBuilder newSum = new StringBuilder();
-
-        for (int i = 0; i < sumString.length(); i++){
-            newSum.append(sumString.charAt(i));
+        if (String.valueOf(newInt).length() > 1) {
+            newInt = digital_root(newInt);
+            return newInt;
         }
-
-        return Integer.parseInt(newSum.toString());
+        else {
+            return newInt;
+        }
     }
 }
